@@ -368,10 +368,10 @@ spec:
         imagePullPolicy: IfNotPresent 
         livenessProbe:
           exec:
-            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:31313" ]
+            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:41000" ]
         readinessProbe:
           exec:
-            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:31313" ]
+            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:41000" ]
         name: pod-to-b-intra-node-hostport
 ---
 apiVersion: apps/v1
@@ -506,10 +506,10 @@ spec:
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
-            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:31313" ]
+            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:41000" ]
         readinessProbe:
           exec:
-            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:31313" ]
+            command: [ "curl", "-sS", "--fail", "-o", "/dev/null", "echo-b-host-headless:41000" ]
         name: pod-to-b-multi-node-nodeport
 ---
 apiVersion: apps/v1
