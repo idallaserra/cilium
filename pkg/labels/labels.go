@@ -257,6 +257,25 @@ func (l *Label) String() string {
 	return fmt.Sprintf("%s:%s", l.Source, l.Key)
 }
 
+func (l *Label) StringConcat() string {
+	if len(l.Value) != 0 {
+		return l.Source + ":" + l.Key + "=" + l.Value
+	}
+	return l.Source + ":" + l.Key
+}
+
+func (l *Label) StringBuilder() string {
+	var b strings.Builder
+	b.WriteString(l.Source)
+	b.WriteString(":")
+	b.WriteString(l.Key)
+	if len(l.Value) != 0 {
+		b.WriteString("=")
+		b.WriteString(l.Value)
+	}
+	return b.String()
+}
+
 // IsValid returns true if Key != "".
 func (l *Label) IsValid() bool {
 	return l.Key != ""

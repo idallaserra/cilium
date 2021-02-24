@@ -372,3 +372,24 @@ func TestLabels_GetFromSource(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkLabel_String(b *testing.B) {
+	l := NewLabel("io.kubernetes.pod.namespace", "kube-system", "k8s")
+	for i := 0; i < b.N; i++ {
+		l.String()
+	}
+}
+
+func BenchmarkLabel_StringConcat(b *testing.B) {
+	l := NewLabel("io.kubernetes.pod.namespace", "kube-system", "k8s")
+	for i := 0; i < b.N; i++ {
+		l.StringConcat()
+	}
+}
+
+func BenchmarkLabel_StringBuilder(b *testing.B) {
+	l := NewLabel("io.kubernetes.pod.namespace", "kube-system", "k8s")
+	for i := 0; i < b.N; i++ {
+		l.StringBuilder()
+	}
+}
